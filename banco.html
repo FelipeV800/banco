@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco</title>
 </head>
+
 <body>
     <h1>Bienvenido de nuevo</h1>
-    <p>Cual es su cuenta: <input type="text" id="txt_nombre_cuenta"></p>
+    <p id="txt_1">Cual es el nombre de su banco: <input type="text" id="txt_nombre_cuenta" /></p>
+    <p id="txt_2">Cual es el nombre del banco al que desea transferir: <input type="text" id="txt_nombre_destino" /></p>
+    <input type="button" value="Continuar" id="btn_verificar" />
     <p id="txt_saldo"></p>
     <p id="respuesta"></p>
     <script src="banco.js"></script>
+    <p id="txt_bank_list">
+        <hr /> Recuerde que podra transferir a los siguientes bancos: <br />
+    <ul>
+        <li>Bancorriente</li>
+        <li>Banco libre</li>
+        <li>Superbanco</li>
+        <li>Banco honesto</li>
+        <li>Banco de la republica</li>
+    </ul>
+    </p>
 </body>
+
 </html>

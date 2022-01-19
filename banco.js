@@ -1,21 +1,37 @@
 var txt_saldo = document.getElementById("txt_saldo");
+var nombreCuenta = document.getElementById("txt_nombre_cuenta");
+var nombreBanco = document.getElementById("txt_nombre_destino");
+var txt_1 = document.getElementById("txt_1");
+var txt_2 = document.getElementById("txt_2");
+var boton = document.getElementById("btn_verificar");
+
+var bancosOK = [];
+for (let e of bancosOK) {
+    bancosOK.push("Bancorriente");
+    bancosOK.push("Banco libre");
+    bancosOK.push("Superbanco");
+    bancosOK.push("Banco honesto");
+    bancosOK.push("Banco de la republica");
+}
+
+boton.addEventListener("click", verificar);
+
 
 var cuentaCliente = {
-    nombre: "a",
-    verificado: true    
+    nombre: "",
+    verificado: false
 };
 var saldoCliente = 1000000;
 var bancoDestino = {
-    nombre: "b",
-    verificado: true
+    nombre: "",
+    verificado: false
 };
 var hora;
 
-var montoTransferencia = 1000000; /*= document.getElementById("txt_transferencia");
-var boton = document.getElementById("btn_transferir");*/
+var montoTransferencia = 1000000; /*= document.getElementById("txt_transferencia");*/
 var costo;
 
-function transferencia () {
+function transferencia() {
     calcularCosto();
     if (cuentaCliente.verificado) {
         if (bancoDestino.verificado) {
@@ -38,10 +54,31 @@ function transferencia () {
     txt_saldo.innerHTML = "Saldo en su cuenta: <strong>" + saldoCliente + "<strong/>";
 }
 
-function calcularCosto () {
+function calcularCosto() {
     if (bancoDestino.nombre == cuentaCliente.nombre) {
         costo = 0;
     } else {
         costo = 100;
     }
-} 
+}
+
+function verificar() {
+    cuentaCliente.nombre = nombreCuenta.value;
+    bancoDestino.nombre = nombreBanco.value;
+    if ((cuentaCliente.nombre != "") && (bancoDestino.nombre != "")) {
+        cuentaCliente.verificado = true;
+        for (let e of bancosOK) {
+            if (bancoDestino == e) {
+                bancoDestino.verificado = true;
+            } else {
+                bancoDestino.verificado = false;
+            }
+        }
+    } else {
+        alert("No puede dejar espacios en blanco");
+        cuentaCliente.verificado = false;
+        bancoDestino.verificado = false;
+    }
+    console.log(cuentaCliente)
+    console.log(bancoDestino)
+}
