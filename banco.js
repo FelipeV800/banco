@@ -1,18 +1,19 @@
 var txt_saldo = document.getElementById("txt_saldo");
 var nombreCuenta = document.getElementById("txt_nombre_cuenta");
 var nombreBanco = document.getElementById("txt_nombre_destino");
+var txt_bank_list = document.getElementById("txt_bank_list");
+var txt_instrucciones = document.getElementById("txt_instrucciones");
 var txt_1 = document.getElementById("txt_1");
 var txt_2 = document.getElementById("txt_2");
 var boton = document.getElementById("btn_verificar");
 
 var bancosOK = [];
-for (let e of bancosOK) {
-    bancosOK.push("Bancorriente");
-    bancosOK.push("Banco libre");
-    bancosOK.push("Superbanco");
-    bancosOK.push("Banco honesto");
-    bancosOK.push("Banco de la republica");
-}
+bancosOK.push("Bancorriente");
+bancosOK.push("Banco libre");
+bancosOK.push("Superbanco");
+bancosOK.push("Banco honesto");
+bancosOK.push("Banco de la republica");
+
 
 boton.addEventListener("click", verificar);
 
@@ -65,20 +66,26 @@ function calcularCosto() {
 function verificar() {
     cuentaCliente.nombre = nombreCuenta.value;
     bancoDestino.nombre = nombreBanco.value;
+    bancoDestino.verificado = false;
     if ((cuentaCliente.nombre != "") && (bancoDestino.nombre != "")) {
         cuentaCliente.verificado = true;
         for (let e of bancosOK) {
-            if (bancoDestino == e) {
+            if (bancoDestino.nombre == e) {
                 bancoDestino.verificado = true;
-            } else {
-                bancoDestino.verificado = false;
             }
         }
+        cambiarFormulario();
     } else {
         alert("No puede dejar espacios en blanco");
         cuentaCliente.verificado = false;
         bancoDestino.verificado = false;
     }
-    console.log(cuentaCliente)
-    console.log(bancoDestino)
+}
+
+function cambiarFormulario(){
+    txt_1.innerHTML = "Seleccione el monto a transferir: ";
+    nombreCuenta.setAttribute("type", "number")
+    nombreCuenta.setAttribute("id", "txt_monto");
+    txt_2.innerHTML = "";
+    txt_instrucciones.innerHTML = "";
 }

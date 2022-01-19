@@ -10,21 +10,21 @@
 
 <body>
     <h1>Bienvenido de nuevo</h1>
-    <p id="txt_1">Cual es el nombre de su banco: <input type="text" id="txt_nombre_cuenta" /></p>
+    <p id="txt_1">Cual es el nombre de su banco: </p><input type="text" id="txt_nombre_cuenta" />
     <p id="txt_2">Cual es el nombre del banco al que desea transferir: <input type="text" id="txt_nombre_destino" /></p>
     <input type="button" value="Continuar" id="btn_verificar" />
     <p id="txt_saldo"></p>
     <p id="respuesta"></p>
     <script src="banco.js"></script>
-    <p id="txt_bank_list">
+    <p id="txt_instrucciones">
         <hr /> Recuerde que podra transferir a los siguientes bancos: <br />
-    <ul>
-        <li>Bancorriente</li>
-        <li>Banco libre</li>
-        <li>Superbanco</li>
-        <li>Banco honesto</li>
-        <li>Banco de la republica</li>
-    </ul>
+        <ul id="text_bank_list">
+            <li>Bancorriente</li>
+            <li>Banco libre</li>
+            <li>Superbanco</li>
+            <li>Banco honesto</li>
+            <li>Banco de la republica</li>
+        </ul>
     </p>
 </body>
 
