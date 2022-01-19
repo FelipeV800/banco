@@ -3,9 +3,10 @@ var nombreCuenta = document.getElementById("txt_nombre_cuenta");
 var nombreBanco = document.getElementById("txt_nombre_destino");
 var txt_bank_list = document.getElementById("txt_bank_list");
 var txt_instrucciones = document.getElementById("txt_instrucciones");
+var contenedorBoton = document.getElementById("btn_contenedor");
 var txt_1 = document.getElementById("txt_1");
 var txt_2 = document.getElementById("txt_2");
-var boton = document.getElementById("btn_verificar");
+var boton1 = document.getElementById("btn_verificar");
 
 var bancosOK = [];
 bancosOK.push("Bancorriente");
@@ -15,8 +16,7 @@ bancosOK.push("Banco honesto");
 bancosOK.push("Banco de la republica");
 
 
-boton.addEventListener("click", verificar);
-
+boton1.addEventListener("click", verificar);
 
 var cuentaCliente = {
     nombre: "",
@@ -87,5 +87,7 @@ function cambiarFormulario(){
     nombreCuenta.setAttribute("type", "number")
     nombreCuenta.setAttribute("id", "txt_monto");
     txt_2.innerHTML = "";
+    document.createElement("input");
     txt_instrucciones.innerHTML = "";
+    contenedorBoton.innerHTML = "";
 }
